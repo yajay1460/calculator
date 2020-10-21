@@ -1,0 +1,33 @@
+request format-----
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://www.examples.com/wsdl/GetSumService.wsdl">
+
+  <soapenv:Header/>
+
+  <soapenv:Body>
+
+   <get:getSum>
+
+     <number1>1</number1>
+
+     <number2>2</number2>
+
+   </get:getSum>
+
+  </soapenv:Body>
+
+</soapenv:Envelope>
+
+
+response in xml-----
+
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ns1:getSumResponse xmlns:ns1="http://www.examples.com/wsdl/GetSumService.wsdl">
+            <body>
+                <Additon>3</Additon>
+            </body>
+        </ns1:getSumResponse>
+    </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,46 @@
+<definitions name = "GetSumService"
+   targetNamespace = "http://www.examples.com/wsdl/GetSumService.wsdl"
+   xmlns = "http://schemas.xmlsoap.org/wsdl/"
+   xmlns:soap = "http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:tns = "http://www.examples.com/wsdl/GetSumService.wsdl"
+   xmlns:xsd = "http://www.w3.org/2001/XMLSchema">
+ 
+   <message name = "getSumRequest">
+      <part name = "number1" type = "xsd:int"/>
+	  <part name = "number2" type = "xsd:int"/>
+   </message>
+	
+   <message name = "getSumResponse">
+      <part name = "number3" type = "xsd:int"/>
+   </message>
+
+   <portType name = "getSum_PortType">
+      <operation name = "getSum">
+         <input message = "tns:getSumRequest"/>
+         <output message = "tns:getSumResponse"/>
+      </operation>
+   </portType>
+
+   <binding name = "getSum_Binding" type = "tns:getSum_PortType">
+      <soap:binding style = "rpc"
+         transport = "http://schemas.xmlsoap.org/soap/http"/>
+      <operation name = "getSum">
+         <soap:operation soapAction = "getSum"/>
+         <input>
+           <soap:body use="literal" />
+         </input>
+		
+         <output>
+            <soap:body use="literal" />
+         </output>
+      </operation>
+   </binding>
+
+   <service name = "getSum_Service">
+      <documentation>WSDL File for GetSumService</documentation>
+      <port binding = "tns:getSum_Binding" name = "getSum_Port">
+         <soap:address
+            location = "http://localhost:8092/getSum"/>
+      </port>
+   </service>
+</definitions>
